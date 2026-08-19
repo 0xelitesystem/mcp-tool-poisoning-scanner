@@ -81,6 +81,8 @@ python -m http.server 8000
 - [mcp-server-registry](https://github.com/0xelitesystem/mcp-server-registry), a public registry of MCP servers. This scanner is the vetting step that sits in front of it.
 - [system-prompt-leak-tester](https://github.com/0xelitesystem/system-prompt-leak-tester), the same idea pointed at the other end of the context window.
 
+- [mcp-server-privilege-inventory](https://0xelitesystem.github.io/mcp-server-privilege-inventory/), works one level up: this scanner reads tool definitions, that one inventories privilege across every server you installed.
+
 ## License
 
 MIT.
