@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -435,6 +435,43 @@ footer {
   body { background: #fff; color: #000; }
   button, textarea { display: none; }
 }
+</style>
+<style>
+/* elitesystem brand tokens: chrome only, meaning preserved */
+:root, :root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --gold: #ffb454;
+  --info: #6fd3e0;
+  --ink: #e8e8e3;
+  --ink-faint: #6e6e68;
+  --ink-soft: #a8a8a3;
+  --ok: #7ddc7d;
+  --rule: #1f1f1d;
+  --rule-strong: #2a2a27;
+  --surface: #111110;
+  --surface-2: #161614;
+  --surface-3: #161614;
+  --teal: #d4ff3a;
+  --teal-deep: #ffb454;
+}
+:root[data-theme="light"] {
+  --bg: #e8ebef;
+  --gold: #a05a00;
+  --info: #0f5c60;
+  --ink: #0a0a0a;
+  --ink-faint: #6e6e68;
+  --ink-soft: #2a2a27;
+  --ok: #1a5c2e;
+  --rule: #c8cdd5;
+  --rule-strong: #aab0ba;
+  --surface: #dee2e8;
+  --surface-2: #d3d7df;
+  --surface-3: #d3d7df;
+  --teal: #2d6b00;
+  --teal-deep: #a05a00;
+}
+:root { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
 </style>
 </head>
 <body>
