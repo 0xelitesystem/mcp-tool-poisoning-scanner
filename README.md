@@ -2,9 +2,7 @@
 
 Paste an MCP server's tool definitions and statically scan them for prompt injection, hidden characters, tool shadowing, and exfiltration-shaped parameters before you install it.
 
-## Live demo
-
-https://0xelitesystem.github.io/mcp-tool-poisoning-scanner/
+**Live demo:** https://0xelitesystem.github.io/mcp-tool-poisoning-scanner/
 
 ## What tool poisoning is
 
@@ -13,6 +11,17 @@ An MCP server advertises its tools through `tools/list`. Every tool carries a na
 That gap is the attack. A server can put instructions to the agent inside a description: call this tool first, use it instead of the one the user picked, pass along the contents of an environment variable, do not mention any of this. The text can be padded out so nobody reads to the end, or hidden behind zero-width characters so there is nothing to read at all.
 
 This tool reads those definitions the way the model does, and reports what it finds.
+
+## Use
+
+1. Get the server's tool definitions: a JSON-RPC `tools/list` response, an object with a `tools` array, a bare array of tools, or a single tool object. Or press **Load sample**.
+2. Paste it into the box and press **Scan definitions**.
+3. Read each finding: severity, tool, JSON path, the offending excerpt and what to do about it. The **Reveal hidden characters** panel shows every string with its invisible, control or confusable characters replaced by labeled markers.
+4. Press **Copy report** or **Copy findings as JSON** to keep the result.
+
+## Why this exists
+
+An operator approving an MCP server usually sees tool names, while the model reads the full descriptions, and that is where injected instructions hide. This scanner reads the definitions the way the model does, before you install the server. It is one HTML file that runs in your browser, with no tracking and no server, under the MIT license.
 
 ## Features
 
@@ -67,6 +76,8 @@ Everything runs in your browser. The JSON you paste is parsed, scanned, and rend
 
 For definitions from a server you already distrust, save the file and open it offline.
 
+The only thing written to storage is your light or dark theme choice, saved in `localStorage` under the key `mcp-tps-theme`.
+
 ## Run locally
 
 ```bash
@@ -75,6 +86,10 @@ cd mcp-tool-poisoning-scanner
 # Open index.html in your browser, or:
 python -m http.server 8000
 ```
+
+## Build
+
+No build step. The whole tool is one `index.html` file with its CSS and JavaScript inline, and nothing to install.
 
 ## Related work
 
